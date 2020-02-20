@@ -7,8 +7,9 @@ from log import Log
 
 class Captcha:
 
-    REAL_IMAGE_POS_X = 494
-    DIGITS_IMAGE_POS_X = 964
+    STREAM_IMAGE_POS_X = 186
+    REAL_IMAGE_POS_X = 779
+    DIGITS_IMAGE_POS_X = 1239
 
     DESTINATION_IMAGE_SIZE = (460, 820)
     DESTINATION_IMAGE_SAMPLED_SIZE = (46, 82)
@@ -59,7 +60,7 @@ class Captcha:
         cv2.namedWindow(self.window_name, cv2.WND_PROP_FULLSCREEN)
         cv2.setWindowProperty(self.window_name, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
-        self.background = cv2.imread('assets/bg.jpg')
+        self.background = cv2.imread('assets/bg.png')
 
         for i in range(0, 10):
             self.digit_images.append(cv2.imread('assets/' + str(i) + '.jpg'))
@@ -73,10 +74,10 @@ class Captcha:
             rotated_image = imutils.rotate_bound(image, 90)
             curr_gray_downscaled_image = self.get_gray_downscaled(rotated_image)
 
-            if self.taken_image is None:
-                scaled_image = cv2.resize(rotated_image, self.DESTINATION_IMAGE_SIZE)
-                self.background[self.IMAGES_Y:self.IMAGES_Y + scaled_image.shape[0], self.REAL_IMAGE_POS_X:self.REAL_IMAGE_POS_X + scaled_image.shape[1]] = scaled_image
-            else:
+            scaled_image = cv2.resize(rotated_image, self.DESTINATION_IMAGE_SIZE)
+            self.background[self.IMAGES_Y:self.IMAGES_Y + scaled_image.shape[0], self.STREAM_IMAGE_POS_X:self.STREAM_IMAGE_POS_X + scaled_image.shape[1]] = scaled_image
+
+            if self.taken_image is not None:
                 self.background[self.IMAGES_Y:self.IMAGES_Y + scaled_image.shape[0], self.REAL_IMAGE_POS_X:self.REAL_IMAGE_POS_X + scaled_image.shape[1]] = self.taken_image
 
             if self.taken_digits_image is not None:
