@@ -1,6 +1,6 @@
-# Timeline (Leonardo)
+# Captcha
 
-## Captcha
+## General
 This exhibit allows to take your photograph, and show it rendered as a matrix of digit images from 0 to 9.
 Then, by allowing the user to change the brightness of the image, digits are replaced to create the designated brightness effect.
 It is designed to work with a button to take the photo and a dial that sets the brightness, which in turn simulate keyboard commands to the exhibit.
@@ -38,13 +38,13 @@ Then, by having the button and dial simulate keyboard inputs, no special code is
 The exhibit reacts to the following keyboard characters:
 
 When it runs, it always shows the camera live input on the left part of the screen.
-Then, when the space character ' ' is pressed on the keyboard, an image is captured, and displayed on the screen, grayscaled and in neutral brightness.
+Then, when the **space** character is pressed on the keyboard, an image is captured, and displayed on the screen, grayscaled and in neutral brightness.
 Next to it, the digit-effect image is shown.
-Now, if the chars '0' to '9' are sent, the brightness is updated accordignly, and both images on the right hand side are updated.
+Now, if the chars **'0'** to **'9'** are sent, the brightness is updated accordignly, and both images on the right hand side are updated.
 
-*Important note:* the '0' char represents brightness 10, and '1' to '9' represent 1 to 9 respectively.
+**Important note:** the '0' char represents brightness 10, and '1' to '9' represent 1 to 9 respectively.
 6, which is the default brightness, is a neutral brighness, with 7, 8, 9 and 10 going brighter, and 5, 4, 3, 2, 1 going darker.
 
 At any time, another space character can be received to replace the current image with an updated live camera one.
 
-Finally, a keyboard input of the 'q' character quits the exhibit (this is intended to be used with an actual keyboard if wanting to stop the exhibit software from running).
+Finally, a keyboard input of the **'q'** character quits the exhibit (this is intended to be used with an actual keyboard if wanting to stop the exhibit software from running).
