@@ -30,6 +30,12 @@ The exhibit supports a rotating log named captcha-dc.log in the root directory, 
 * IMAGE_CAPTURED (a live camera image was captured, following a space char sent from keyboard)
 * BRIGHTNESS_CHANGED,N (brightness was changed by an input of '0' to '9' resulting in a brightness number N, with 6 being no change, 5, 4, 3, 2, 1 going darker and 7, 8, 9, 10 going lighter)
 
+Each event will be prefixed by a timestamp (year-month-day hour:minute:seconds.mili with year as 4 digit, all rest as 2 digit and milliseconds as 3 digits), a | separator and then INFO or ERROR, another | separator, CAPTCHA-DC, another | separator, then the memory size the exhibit takes in MB (i.e. 100MB), and finally another | separator, then the actual message specified above.
+
+So a sample line will look like this (note the timestamp format, that includes milliseconds):
+```
+2023-03-15 14:45:30.123|INFO|CAPTCHA-DC|10MB|START|en
+```
 
 ## Keyboard Input Interface
 For simplicity, the exhibit simply reacts to keyboard.
